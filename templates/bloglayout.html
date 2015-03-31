@@ -1,0 +1,18 @@
+{% extends "mainlayout.html" %}
+{% block body %}
+	<a style="display:inline-block;
+				padding:10px;
+				background-color:white;
+				border-radius:4px;
+				border:solid 1px #7E9CA8;
+				width:100px;
+				float:right;
+				color:orange;
+				"
+				href="#">
+		<span class="heading">{{ judul }}</span>
+		<br/>
+		(^) one-click mark this as useful as feedback
+	</a>
+	{% block blogbody %}{% endblock %}
+{% endblock %}

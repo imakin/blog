@@ -1,0 +1,118 @@
+*{padding:0px;margin:0px;}
+body{
+	padding:0px;
+	margin:0px;
+	font-family:"Arial";
+	font-size:14px;
+	background:#3f534b;
+}
+a,a:visited{
+	color:blue;
+	text-decoration:none;
+}
+header, header h1{
+	padding:0px;
+	margin-top:0px;
+	width:100%;
+	height:50px;
+	background-color:#252F4F;
+	border-bottom:solid 4px #648359;
+	color:#BEE0F1;
+	font-size:1em;
+	text-align:center;
+	vertical-align:middle;
+	line-height:50px;
+	z-index:0;
+}
+
+#logo{
+	font-size:40px;
+	font-weight:900;
+	color:#ffffff;
+
+	width:800px;
+	margin-left:auto;
+	margin-right:auto;
+	padding-top:40px;
+	line-height:50px;
+	padding-bottom:40px;
+}
+#logo a{
+	color:white;
+}
+#logo #tanda{
+	font-size:14px;
+	font-weight:300;
+	color:#ABABAB;
+
+	float:right;
+	display:inline-block;
+	background:white;
+	line-height:20px;
+	padding:10px;
+	border-top-left-radius:10px;
+	border-top-right-radius:10px;
+	margin-top:50px;
+}
+#logo #tanda a{
+	color:#D0B3B3;
+}
+
+#page{
+	width:800px;
+	min-height:2500px;
+	margin-left:auto;
+	margin-right:auto;
+	background-color:#D9D7D7;
+	background: url('img/bg2col.png');
+	color:#f7874a;
+	padding-top:40px;
+	padding-bottom:40px;
+	z-index:1;
+}
+#page > *{
+	margin-left:30px;
+	margin-right:30px;
+
+}
+
+#documentlist li{
+	width:300px;
+	text-align:justify;
+	color:#555555;
+}
+
+p{
+	padding:5px;
+	color:black;
+	font-family:"Arial";
+	font-size:10pt;
+	margin-top:5px;
+}
+p > pre, p>div{
+	color:black;
+	font-family:"Arial";
+	font-size:10pt;
+	width:100%;
+}
+.kontener pre{
+	background-color:#EAF0F4 !important;
+	color:#5E5E5E !important;
+	font-size:0.9em;
+	padding:5px;
+}
+
+.kontener{
+	background-color:white;
+	padding:20px;
+	border:solid 2px #BBBBBB;
+}
+.heading{
+	font-weight:bold;color:#7E6433;
+	}
+h1.normal{
+	color:black;
+	font-size:10pt;
+	font-weight:normal;
+
+}

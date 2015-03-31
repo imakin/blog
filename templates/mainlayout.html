@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>{% block judul %}Makin{% endblock %}</title>
+		<link rel="stylesheet" type="text/css" href="/static/style.css">
+		<script src="/static/jquery.js"></script>
+		{% block head %}{% endblock %}
+	</head>
+	<body>
+		<header>
+		{% block header %}
+			<h1>Makin, personal archive &amp; document library</h1>
+		{% endblock %}
+		</header>
+		<div id="logo">
+			<a href="{% print('/') %}" title="home">KECU</a>
+			<div id="tanda">
+				[<a href="https://twitter.com/makonil" target="blank" title="random guy's twitter">twitter</a>]
+				[<a href="https://github.com/imakin/" target="blank" title="random guy's github">github</a>]
+			</div>
+		</div>
+<div id="page">
+		{% block body %}{% endblock %}
+</div>
+	</body>
+</html>

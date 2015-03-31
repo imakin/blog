@@ -1,0 +1,65 @@
+{% extends "bloglayout.html" %}
+{% block blogbody %}
+	{% block excerpt %}
+		<h1 class="normal">How to run subprocess in C++11 for mingw in windows and save its output in an std::string variable.
+		This one might be hackish, but it works. In POSIX you can always use popen
+		in c++11, but how to do it in mingw with c++11??
+		</h1>
+	{% endblock %}
+	<br/>
+	<br/>
+	<h2>Here's how:</h2>
+	<article class="kontener">
+	<p>
+		So this is just a reminder that you can always use extern! Create traditional c++ with function to run subprocess using _popen, and link that function to your c++11 source using extern
+	</p>
+	<p>
+		<span class="heading">subprocess.cpp</span><br/>
+		<pre style="">
+#include &lt;string&gt;
+#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+
+#ifdef WINDOWS
+	#define popen _popen
+	#define pclose _pclose
+#endif
+
+std::string exec(char* cmd) {
+	FILE* pipe = popen(cmd, "r");
+	if (!pipe) return "ERROR";
+	char buffer[128];
+	std::string result = "";
+	while(!feof(pipe)) {
+		if(fgets(buffer, 128, pipe) != NULL)
+			result += buffer;
+	}
+	pclose(pipe);
+	return result;
+}		</pre>
+	</p>
+	<p>
+		<span class="heading">main.cpp</span><br/>
+		<pre style="">
+#include &lt;string&gt;
+#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+
+extern std::string exec(char* cmd);
+
+int main()
+{
+	std::string k("");
+	k = exec("ls");
+	std::cout<< k;
+}
+		</pre>
+	</p>
+
+	<p>
+g++ -DWINDOWS -c subprocess.cpp<br/>
+g++ -std=c++11 -c main.cpp<br/>
+g++ -std=c++11 main.o subpr.o -o main.exe<br/>
+	</p>
+	</article>
+{% endblock %}

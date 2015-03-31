@@ -1,0 +1,19 @@
+{% extends "mainlayout.html" %}
+{% block judul %}Makin personal Archive &amp; Library{% endblock %}
+{% block head %}
+	<script src="static/paging.js"></script>
+{% endblock %}
+{% block body %}
+	<article>
+	<p id="scroll">-</p>
+	<h2>Document List</h2>
+	<ul id="documentlist">
+	{% for i in blogs[1] : %}
+		<li>
+			<a href="{{ blogurl+blogs[0][i] }}">{{ blogs[0][i] }}</a>
+			{{ excerpts[0][i] }}
+		</li>
+	{% endfor %}
+	</ul>
+	</article>
+{% endblock %}
