@@ -27,7 +27,10 @@ blogurl = "/blog/"
 @app.route('/')
 def index():
 	#-- ambil blog yg ada
-	files = os.listdir(templateDir)
+	try:
+		files = os.listdir(templateDir)
+	except:
+		files = os.listdir(templateDir[templateDir.rfind(r"/")+1:])
 	blogsdata = re.compile("blog_(\w*)").findall(str(files))
 	blogsrange = range(len(blogsdata))
 	blogs = [blogsdata, blogsrange]
@@ -36,9 +39,16 @@ def index():
 	i = 0
 	excerptsdata = []
 	for i in blogs[1]:
-		f = open(templateDir+"/blog_"+blogs[0][i]+".html","r")
-		data = f.read()
-		f.close()
+		try:
+			f = open(templateDir+"/blog_"+blogs[0][i]+".html","r")
+			data = f.read()
+			f.close()
+		except:
+			t= templateDir[templateDir.rfind(r"/")+1:]
+			f = open(t+"/blog_"+blogs[0][i]+".html","r")
+			data = f.read()
+			f.close()
+			
 		excerpt = data[data.find("{% block excerpt %}")+len("{% block excerpt %}"):] #-- better than regex
 		excerpt = excerpt[:excerpt.find("{% endblock %}")] #-- better than regex
 		excerpt = strip_tags(excerpt)
