@@ -55,7 +55,7 @@ def index():
 
 @app.route(blogurl+'<judul>')
 def templates(judul):
-	return flask.render_template('blog_'+judul+'.html',judul=judul)
+	return flask.render_template('blog_'+judul+'.html',judul=judul.replace("_"," "))
 
 @app.route('/\\')
 def tes():
